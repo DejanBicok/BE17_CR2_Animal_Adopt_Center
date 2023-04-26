@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 26, 2023 at 11:10 AM
--- Server version: 5.7.42
--- PHP Version: 8.1.16
+-- Host: 127.0.0.1
+-- Generation Time: Apr 26, 2023 at 11:44 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,8 +41,7 @@ INSERT INTO `adopt_center` (`adopt_id`, `fk_user`, `fk_animal`) VALUES
 (14, 14, 14),
 (15, 14, 15),
 (29, 15, 23),
-(31, 15, 22),
-(32, 14, 28);
+(31, 15, 22);
 
 -- --------------------------------------------------------
 
@@ -82,7 +81,8 @@ INSERT INTO `animals` (`animal_id`, `name`, `picture`, `location`, `description`
 (26, 'Lucy', '637828239bfea.jpg', 'Graz, Austria', 'Dog: Border Collies are energetic, even-tempered and eager to please, making them a good choice for a family pet. They get along well with children and other pets provided they are introduced properly.', 'Large Breed', '2014-02-05', 'Fully Vaccinated', ''),
 (27, 'Birdie', '637828bd6a291.jpg', 'Wagrain, Austria', 'Cat: The Birman is a semi long-haired cat with a silky soft, luxuriant coat, beautiful blue eyes and pure white feet (gloves on the front paws, socks on the back.) Under the fur this is a moderately built cat, medium to large with a well-muscled body, rou', 'Small Breed', '2017-12-01', 'Fully Vaccinated', ''),
 (28, 'Cooper', '637829a44d509.jpg', 'Wels, Austria', 'Dog: The German shepherd dog is a herding breed known for its courage, loyalty and guarding instincts. This breed makes an excellent guard dog, police dog, military dog, guide dog for the blind and search and rescue dog. For many families, the German shep', 'Large Breed', '2014-04-07', 'Fully Vaccinated', ''),
-(35, 'Test Name', 'noimage.png', 'Test Location', 'Test Description', 'Test Size', '2022-01-01', 'Test Vaccination', '');
+(32, 'Unknown', 'noimage.png', 'Test', 'Test', 'Test', '0000-00-00', 'Test', ''),
+(33, 'dsds', '639318232f05c.jpg', 'sdsd', 'sdsdsd', 'dsds', '0000-00-00', 'sdsdds', '');
 
 -- --------------------------------------------------------
 
@@ -96,9 +96,9 @@ CREATE TABLE `users` (
   `last_name` varchar(100) NOT NULL,
   `date_of_birth` date NOT NULL,
   `email` varchar(150) NOT NULL,
-  `phone_number` varchar(50) DEFAULT NULL,
-  `address` varchar(100) DEFAULT NULL,
-  `picture` varchar(100) DEFAULT NULL,
+  `phone_number` varchar(50) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `picture` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
   `status` varchar(4) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -108,9 +108,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `date_of_birth`, `email`, `phone_number`, `address`, `picture`, `password`, `status`) VALUES
-(8, 'Admin', '', '1992-01-01', 'jode@mail.com', '', '', '6378eddb93ea3.png', 'cbac07cd70e4f319f42950534cfda8d0c10a7d4d614fd04f0cfd9cc35f4472dc', 'adm'),
-(14, 'Stephen', 'Curry', '1990-05-22', 'stephen@mail.com', '', '', '63a9b53b9b4c7.jpg', '9157eb10346fcd53e2f7849dc6d28a79832042ef5d0a34e7ece57da25d7d5080', 'user'),
-(15, 'Kevin', 'Durant', '1985-02-05', 'kevin@mail.com', '', '', '63a9b4c1b3a34.jpg', '23728f6692b413f930bfae95bc5951a8e38bc3660988e814a96fbc5ca0575edf', 'user');
+(8, 'Dejan', 'Bicok', '1992-01-18', 'jode@mail.com', '', '', '6378eddb93ea3.png', 'cbac07cd70e4f319f42950534cfda8d0c10a7d4d614fd04f0cfd9cc35f4472dc', 'adm'),
+(14, 'Stephen', 'Curry', '1990-05-20', 'stephen@mail.com', '', '', '6378ed75c2f2d.png', '9157eb10346fcd53e2f7849dc6d28a79832042ef5d0a34e7ece57da25d7d5080', 'user'),
+(15, 'Kevin', 'Durant', '1985-02-05', 'kevin@mail.com', '', '', 'avatar.png', '23728f6692b413f930bfae95bc5951a8e38bc3660988e814a96fbc5ca0575edf', 'user'),
+(17, 'mileeed', 'mile', '0052-02-25', 'mile@mail.com', '', '', 'avatar.png', 'f1ec02ca1cd581d0851b768eab11b014fae6df030fb7db437b66a490263e406e', 'user');
 
 --
 -- Indexes for dumped tables
@@ -145,19 +146,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `adopt_center`
 --
 ALTER TABLE `adopt_center`
-  MODIFY `adopt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `adopt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `animals`
 --
 ALTER TABLE `animals`
-  MODIFY `animal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `animal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
