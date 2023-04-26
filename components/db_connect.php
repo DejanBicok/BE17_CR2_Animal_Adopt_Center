@@ -1,13 +1,8 @@
 <?php
 
-// $localhost = "127.0.0.1";
-// $username = "root";
-// $password = "";
-// $dbname = "be17_cr5_animal_adoption_dejan";
-
-$localhost = "173.212.235.205";
-$username = "dejancodefactory_admin";
-$password = "dejanadmin1!";
+$localhost = "127.0.0.1";
+$username = "root";
+$password = "";
 $dbname = "dejancodefactory_adopt_center";
 
 // create connection
